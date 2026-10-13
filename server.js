@@ -31,17 +31,24 @@ app.get('/', (req, res) => {
 })
 
 app.post('/messages', (req, res) => {
-  db.collection('messages').insertOne({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => {
+  db.collection('messages').insertOne(
+    {name: req.body.name, 
+      msg: req.body.msg, 
+      thumbUp: 0, 
+      thumbDown:0}, 
+    (err, result) => {
     if (err) return console.log(err)
-    console.log('saved to database')
+    console.log('saved to databasehh')
     res.redirect('/')
+    console.log(result)
   })
 })
-
+//updating the likes
 app.put('/messages', (req, res) => {
   db.collection('messages')
-  .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
-    $set: {
+  .findOneAndUpdate(
+    {name: req.body.name, msg: req.body.msg}, 
+    {$set: {
       thumbUp:req.body.thumbUp + 1
     }
   }, {
@@ -49,10 +56,27 @@ app.put('/messages', (req, res) => {
     upsert: true
   }, (err, result) => {
     if (err) return res.send(err)
+      console.log(result)
     res.send(result)
   })
 })
-
+//updating the dislikes
+app.put('/manitoAbajo', (req, res) => {
+  db.collection('messages')
+  .findOneAndUpdate(
+    {name: req.body.name, msg: req.body.msg}, 
+    {$set: { 
+      thumbDown:req.body.thumbDown - 1
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true
+  }, (err, result) => {
+    if (err) return res.send(err)
+      console.log(result)
+    res.send(result)
+  })
+})
 app.delete('/messages', (req, res) => {
   db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
     if (err) return res.send(500, err)
