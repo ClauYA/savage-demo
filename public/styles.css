@@ -1,6 +1,94 @@
-body{
-  background: rgb(223, 187, 187);
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 160px;
+  align-items: center;
+  align-self: stretch;
+}
+.btn-nav:hover{
+  color: #2D8087;
+}
+.logo-title{
+  display: flex;
+  height: 70px;
+  width: 100px;
+  justify-content: center;
+  gap: 16px;
+}
+.container-headline{
+  display: block;
+  padding: 42px 72px 44px 72px;
+  align-items: flex-end;
+  gap: 16px;
+  align-self: stretch;
+  color: #713131;
+  font-family: "DM Sans";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+h1{
+  margin: 0;
 }
 h3{
-  margin-top: 40px;
+  margin: 0px;
+  padding: 0;
+}
+.container-messages{
+  display: flex;
+  padding: 48px 72px 64px 72px;
+  align-items: flex-start;
+  gap: 56px;
+  align-self: stretch;
+}
+.container-add-messages input,
+.container-add-messages textarea,
+.container-add-messages select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #d9c3bb;
+  border-radius: 12px;
+  background: #fff;
+  color: #713131;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+}
+.container-button{
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.messages{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+.message{
+  display: flex;
+  justify-content: space-between;
+  min-height: 80px;
+  padding: 16px 0;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  border-bottom: 1px solid #DED1CB;
+}
+.messages-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  flex: 1 0 0;
+}
+.messages-likes{
+  display: flex;
+  width: 224px;
+  align-items: center;
+  gap: 8px;
 }

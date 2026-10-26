@@ -35,8 +35,8 @@ Array.from(thumbDown).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const msg = this.parentNode.parentNode.childNodes[3].innerText
-        //const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+        //const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
         const manitoAbajo = Number(element.dataset.unlike)
 
          console.log(manitoAbajo)

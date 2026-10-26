@@ -1,5 +1,5 @@
 const express = require('express')
-const app = express()
+const app = express()                 
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
@@ -17,10 +17,11 @@ app.listen(3000, () => {
         console.log("Connected to `" + dbName + "`!");
     });
 });
-
+//
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+//go in the public folder and takes anytime that is in that folder
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
