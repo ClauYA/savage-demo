@@ -1,11 +1,11 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()                 
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
 var db, collection;
-
-const url = "mongodb+srv://demo:demo@cluster0-q2ojb.mongodb.net/test?retryWrites=true";
+const url = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@${process.env.SERVER_DB}/test?retryWrites=true`;
 const dbName = "demo";
 
 app.listen(3000, () => {
